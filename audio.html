@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>بحث الصوتيات MP3 الإسلامية | Archive.org</title>
+  <meta name="description" content="ابحث عن محاضرات ودروس صوتية MP3 إسلامية من Archive.org مع تطبيع عربي ذكي، وقائمة تشغيل ومشغل ثابت ومفضلة.">
+  <meta name="keywords" content="صوتيات اسلامية, mp3, محاضرات, دروس, archive.org, بحث عربي">
+
+  <link rel="canonical" href="https://your-domain.com/audio.html">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="بحث الصوتيات MP3 الإسلامية">
+  <meta property="og:description" content="بحث ذكي + قائمة تشغيل + مشغل ثابت + مفضلة.">
+  <meta property="og:url" content="https://your-domain.com/audio.html">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebPage",
+    "name":"بحث الصوتيات MP3 الإسلامية",
+    "url":"https://your-domain.com/audio.html",
+    "inLanguage":"ar"
+  }
+  </script>
+</head>
+<body data-page="audio">
+
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+  <div class="container container-narrow">
+    <a class="navbar-brand brand-badge" href="index.html">
+      <span class="brand-mark">ق</span>
+      <span class="fw-bold">بحث إسلامي</span>
+    </a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="nav">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 gap-lg-1">
+        <li class="nav-item"><a class="nav-link" href="index.html">الرئيسية</a></li>
+        <li class="nav-item"><a class="nav-link" href="audio.html">الصوتيات</a></li>
+        <li class="nav-item"><a class="nav-link" href="books.html">الكتب</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">حول</a></li>
+        <li class="nav-item"><a class="nav-link" href="guide.html">دليل الاستخدام</a></li>
+      </ul>
+
+      <div class="d-flex gap-2 align-items-center">
+        <button class="btn btn-outline-gold" id="btnFavModal" type="button" title="المفضلة">
+          <i class="fa-solid fa-heart"></i>
+        </button>
+        <button class="btn btn-outline-gold" data-theme-toggle type="button" title="تبديل الوضع">
+          <i class="fa-solid fa-sun" data-theme-icon></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<header class="container container-narrow my-4">
+  <div class="hero">
+    <h1 class="mb-2" style="font-family:Amiri,serif;">بحث الصوتيات MP3</h1>
+    <p class="mb-0" style="opacity:.92">
+      اكتب كلماتك (مثلاً: "العقيدة والتوحيد" أو اسم الشيخ). يتم تطبيق تطبيع عربي لزيادة دقة النتائج.
+    </p>
+  </div>
+</header>
+
+<main class="container container-narrow mb-5 pb-5">
+  <section class="cardx">
+    <div class="cardx-body">
+      <form id="searchForm" class="row g-2 align-items-center" role="search">
+        <div class="col-12 col-md-9">
+          <input id="q" class="form-control" type="search" placeholder="ابحث عن: شيخ، كتاب مسموع، درس..." aria-label="بحث الصوتيات">
+        </div>
+        <div class="col-12 col-md-3 d-grid">
+          <button class="btn btn-gold" type="submit">
+            <i class="fa-solid fa-magnifying-glass"></i> بحث
+          </button>
+        </div>
+      </form>
+
+      <div class="mt-3 d-flex flex-wrap gap-2">
+        <button class="btn btn-outline-gold btn-sm" type="button" data-preset="الشيخ صالح بن فوزان الفوزان">
+          مثال: الشيخ صالح بن فوزان الفوزان
+        </button>
+        <button class="btn btn-outline-gold btn-sm" type="button" data-preset="العقيدة والتوحيد">
+          مثال: العقيدة والتوحيد
+        </button>
+      </div>
+
+      <div class="mt-3" id="status"></div>
+
+      <div class="loader-wrap mt-3" id="loaderWrap" aria-live="polite">
+        <div class="loader" title="تحميل"></div>
+        <div class="text-center small-muted mt-2">جاري تحميل النتائج...</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="mt-3" id="results" aria-live="polite"></section>
+
+  <section class="mt-3" id="pagination"></section>
+</main>
+
+<!-- Modal: Playlist -->
+<div class="modal fade" id="playlistModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg">
+    <div class="modal-content cardx">
+      <div class="modal-header">
+        <h5 class="modal-title" style="font-family:Amiri,serif;">قائمة المقاطع (MP3)</h5>
+        <button type="button" class="btn-close ms-0 me-auto" data-bs-dismiss="modal" aria-label="إغلاق"></button>
+      </div>
+      <div class="modal-body" id="playlistBody"></div>
+      <div class="modal-footer">
+        <button class="btn btn-outline-gold" data-bs-dismiss="modal">إغلاق</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal: Favorites -->
+<div class="modal fade" id="favoritesModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg">
+    <div class="modal-content cardx">
+      <div class="modal-header">
+        <h5 class="modal-title" style="font-family:Amiri,serif;">المفضلة</h5>
+        <button type="button" class="btn-close ms-0 me-auto" data-bs-dismiss="modal" aria-label="إغلاق"></button>
+      </div>
+      <div class="modal-body" id="favoritesBody"></div>
+      <div class="modal-footer">
+        <button class="btn btn-outline-gold" data-bs-dismiss="modal">إغلاق</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Player Bar -->
+<div class="player-bar" id="playerBar" role="region" aria-label="مشغل الصوت">
+  <div class="container container-narrow">
+    <div class="d-flex align-items-center justify-content-between gap-2">
+      <div class="player-meta flex-grow-1">
+        <div class="title" id="playerTitle">—</div>
+        <div class="sub" id="playerSub">—</div>
+      </div>
+
+      <div class="player-controls d-flex align-items-center gap-1">
+        <button id="btnPrev" title="السابق" aria-label="السابق"><i class="fa-solid fa-backward-step"></i></button>
+        <button id="btnPlay" title="تشغيل/إيقاف" aria-label="تشغيل/إيقاف"><i class="fa-solid fa-play"></i></button>
+        <button id="btnNext" title="التالي" aria-label="التالي"><i class="fa-solid fa-forward-step"></i></button>
+
+        <input class="range mx-2" id="volRange" type="range" min="0" max="1" step="0.05" value="0.9" aria-label="الصوت" style="width:120px;">
+
+        <button id="btnFav" title="مفضلة" aria-label="مفضلة"><i class="fa-solid fa-heart"></i></button>
+        <button id="btnDownload" title="تحميل" aria-label="تحميل"><i class="fa-solid fa-download"></i></button>
+        <button id="btnShare" title="مشاركة/نسخ رابط" aria-label="مشاركة"><i class="fa-solid fa-share-nodes"></i></button>
+      </div>
+    </div>
+
+    <audio id="audioEl" preload="none"></audio>
+  </div>
+</div>
+
+<footer class="py-4">
+  <div class="container container-narrow">
+    <div class="d-flex flex-column flex-md-row justify-content-between gap-2">
+      <div class="small-muted">
+        <a href="guide.html">دليل الاستخدام</a> • <a href="books.html">بحث الكتب</a>
+      </div>
+      <div class="small-muted">© <span data-year></span></div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
+<script src="js/app.js" defer></script>
+<script src="js/search.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="محرك بحث ذكي للصوتيات والكتب الإسلامية - أكبر مكتبة إسلامية رقمية تضم آلاف التسجيلات الصوتية والكتب PDF من موقع archive.org">
+    <meta name="keywords" content="كتب إسلامية, صوتيات إسلامية, تحميل كتب PDF, محاضرات دينية, archive.org, مكتبة إسلامية">
+    <meta name="author" content="الباحث الإسلامي">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="المكتبة الإسلامية - محرك بحث الصوتيات والكتب">
+    <meta property="og:description" content="أكبر محرك بحث ذكي للصوتيات والكتب الإسلامية من archive.org">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="ar_AR">
+    
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "المكتبة الإسلامية",
+        "url": "https://islamic-library.com",
+        "description": "محرك بحث ذكي للصوتيات والكتب الإسلامية",
+        "inLanguage": "ar",
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": {
+                "@type": "EntryPoint",
+                "urlTemplate": "https://islamic-library.com/search?q={search_term_string}"
+            },
+            "query-input": "required name=search_term_string"
+        }
+    }
+    </script>
+    
+    <title>المكتبة الإسلامية | محرك بحث الصوتيات والكتب</title>
+    
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
+    
+    <style>
+        /* Custom CSS */
+        :root {
+            --primary-green: #0B6E4F;
+            --primary-gold: #C9A227;
+            --dark-gold: #a07d1a;
+            --white: #FFFFFF;
+            --light-bg: #F8F9FA;
+            --dark-text: #2C3E50;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Cairo', 'Amiri', serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e8edf2 100%);
+            color: var(--dark-text);
+            overflow-x: hidden;
+        }
+        
+        /* Geometric Pattern Background */
+        .pattern-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.03;
+            pointer-events: none;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 5 L55 20 L55 40 L30 55 L5 40 L5 20 Z' fill='none' stroke='%230B6E4F' stroke-width='1'/%3E%3Cpath d='M30 15 L45 25 L45 35 L30 45 L15 35 L15 25 Z' fill='none' stroke='%23C9A227' stroke-width='1'/%3E%3C/svg%3E");
+            background-repeat: repeat;
+        }
+        
+        /* Navbar */
+        .navbar {
+            background: linear-gradient(135deg, var(--primary-green), #085a40);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            padding: 1rem 2rem;
+            transition: all 0.3s ease;
+        }
+        
+        .navbar-brand {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary-gold) !important;
+            font-family: 'Amiri', serif;
+        }
+        
+        .navbar-brand i {
+            color: var(--primary-gold);
+            margin-left: 10px;
+        }
+        
+        .nav-link {
+            color: var(--white) !important;
+            font-weight: 500;
+            margin: 0 10px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .nav-link:hover {
+            color: var(--primary-gold) !important;
+            transform: translateY(-2px);
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            right: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-gold);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, rgba(11,110,79,0.95), rgba(8,90,64,0.95));
+            color: var(--white);
+            padding: 80px 0;
+            margin-bottom: 50px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            animation: fadeInUp 0.8s ease;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.95;
+            animation: fadeInUp 1s ease;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Search Box */
+        .search-box {
+            background: var(--white);
+            border-radius: 60px;
+            padding: 5px 5px 5px 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .search-box:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+        
+        .search-box input {
+            border: none;
+            padding: 12px;
+            font-size: 1rem;
+            background: transparent;
+        }
+        
+        .search-box input:focus {
+            outline: none;
+            box-shadow: none;
+        }
+        
+        .search-box button {
+            background: var(--primary-gold);
+            border: none;
+            border-radius: 50px;
+            padding: 10px 30px;
+            color: var(--white);
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .search-box button:hover {
+            background: var(--dark-gold);
+            transform: scale(1.02);
+        }
+        
+        /* Cards */
+        .card {
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            background: var(--white);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .card-icon {
+            background: linear-gradient(135deg, var(--primary-green), var(--primary-gold));
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 20px auto;
+        }
+        
+        .card-icon i {
+            font-size: 2rem;
+            color: var(--white);
+        }
+        
+        .card-title {
+            color: var(--primary-green);
+            font-weight: 700;
+        }
+        
+        .btn-gold {
+            background: var(--primary-gold);
+            color: var(--white);
+            border-radius: 30px;
+            padding: 10px 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-gold:hover {
+            background: var(--dark-gold);
+            transform: scale(1.05);
+            color: var(--white);
+        }
+        
+        /* Audio Player */
+        .fixed-audio-player {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(135deg, var(--primary-green), #085a40);
+            padding: 15px 30px;
+            z-index: 1000;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+            box-shadow: 0 -5px 20px rgba(0,0,0,0.2);
+        }
+        
+        .fixed-audio-player.show {
+            transform: translateY(0);
+        }
+        
+        .player-controls button {
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 1.2rem;
+            margin: 0 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .player-controls button:hover {
+            color: var(--primary-gold);
+            transform: scale(1.1);
+        }
+        
+        /* Loader */
+        .loader {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80px;
+            height: 80px;
+            border: 5px solid var(--primary-gold);
+            border-top-color: var(--primary-green);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            z-index: 9999;
+            background: rgba(255,255,255,0.9);
+            border-radius: 50%;
+        }
+        
+        @keyframes spin {
+            to { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+        
+        /* Footer */
+        .footer {
+            background: #1a1a2e;
+            color: var(--white);
+            padding: 50px 0 20px;
+            margin-top: 60px;
+        }
+        
+        .footer a {
+            color: var(--primary-gold);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footer a:hover {
+            color: var(--white);
+            padding-right: 5px;
+        }
+        
+        /* Results List */
+        .result-item {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 15px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .result-item:hover {
+            transform: translateX(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+        
+        /* Modal */
+        .modal-content {
+            border-radius: 20px;
+            border: 2px solid var(--primary-gold);
+        }
+        
+        .modal-header {
+            background: linear-gradient(135deg, var(--primary-green), #085a40);
+            color: var(--white);
+            border-radius: 18px 18px 0 0;
+        }
+        
+        /* Dark Mode */
+        body.dark-mode {
+            background: #1a1a2e;
+            color: #f0f0f0;
+        }
+        
+        body.dark-mode .card,
+        body.dark-mode .result-item,
+        body.dark-mode .search-box {
+            background: #2d2d44;
+            color: #f0f0f0;
+        }
+        
+        .dark-mode-toggle {
+            position: fixed;
+            bottom: 100px;
+            right: 20px;
+            background: var(--primary-gold);
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            z-index: 999;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .navbar-brand {
+                font-size: 1.2rem;
+            }
+            
+            .search-box {
+                border-radius: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="pattern-bg"></div>
+
+<!-- Loader -->
+<div class="loader" id="loader"></div>
+
+<!-- Dark Mode Toggle -->
+<button class="dark-mode-toggle" id="darkModeToggle">
+    <i class="fas fa-moon"></i>
+</button>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="index.html">
+            <i class="fas fa-quran"></i> المكتبة الإسلامية
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item"><a class="nav-link" href="index.html">الرئيسية</a></li>
+                <li class="nav-item"><a class="nav-link" href="audio.html">الصوتيات</a></li>
+                <li class="nav-item"><a class="nav-link" href="books.html">الكتب</a></li>
+                <li class="nav-item"><a class="nav-link" href="about.html">حول</a></li>
+                <li class="nav-item"><a class="nav-link" href="guide.html">دليل الاستخدام</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Audio Player -->
+<div class="fixed-audio-player" id="audioPlayer">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-4">
+                <div class="text-white" id="currentTrackTitle">لم يتم اختيار مقطع</div>
+            </div>
+            <div class="col-md-5">
+                <div class="player-controls text-center">
+                    <button id="prevBtn"><i class="fas fa-backward"></i></button>
+                    <button id="playPauseBtn"><i class="fas fa-play"></i></button>
+                    <button id="nextBtn"><i class="fas fa-forward"></i></button>
+                    <button id="volumeBtn"><i class="fas fa-volume-up"></i></button>
+                    <input type="range" id="volumeSlider" min="0" max="1" step="0.1" value="1" style="width: 80px;">
+                </div>
+            </div>
+            <div class="col-md-3 text-md-end text-center mt-2 mt-md-0">
+                <button class="btn btn-sm btn-outline-light" id="favoriteBtn"><i class="far fa-heart"></i> مفضلة</button>
+                <button class="btn btn-sm btn-outline-light" id="downloadBtn"><i class="fas fa-download"></i> تحميل</button>
+                <button class="btn btn-sm btn-outline-light" id="shareBtn"><i class="fas fa-share"></i> مشاركة</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<audio id="playerAudio"></audio>
+
+<!-- Main Content -->
+<main>
+    <!-- Hero Section -->
+    <div class="hero">
+        <div class="container text-center">
+            <h1>محرك بحث ذكي للصوتيات والكتب الإسلامية</h1>
+            <p class="lead">أكبر مكتبة رقمية إسلامية تضم آلاف المحاضرات والكتب PDF من archive.org</p>
+            <div class="row justify-content-center mt-5">
+                <div class="col-md-8">
+                    <div class="search-box d-flex">
+                        <input type="text" id="mainSearch" class="form-control" placeholder="ابحث عن محاضرات، كتب، تفاسير، أحاديث...">
+                        <button id="searchBtnMain"><i class="fas fa-search"></i> بحث</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Quick Access Section -->
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-md-6">
+                <div class="card text-center p-4">
+                    <div class="card-icon">
+                        <i class="fas fa-headphones"></i>
+                    </div>
+                    <h3 class="card-title">الصوتيات الإسلامية</h3>
+                    <p>آلاف المحاضرات والتسجيلات الصوتية لكبار العلماء والدعاة</p>
+                    <a href="audio.html" class="btn btn-gold w-50 mx-auto">استكشف الآن</a>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card text-center p-4">
+                    <div class="card-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <h3 class="card-title">الكتب الإسلامية PDF</h3>
+                    <p>مكتبة ضخمة من الكتب في مختلف العلوم الشرعية</p>
+                    <a href="books.html" class="btn btn-gold w-50 mx-auto">استكشف الآن</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Recent Results -->
+        <div class="mt-5" id="recentResults">
+            <h2 class="text-center mb-4" style="color: var(--primary-green);">أحدث الإضافات</h2>
+            <div id="resultsContainer"></div>
+        </div>
+    </div>
+</main>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <h4><i class="fas fa-quran"></i> المكتبة الإسلامية</h4>
+                <p>محرك بحث ذكي يوفر الوصول لأكبر مكتبة إسلامية رقمية</p>
+            </div>
+            <div class="col-md-4 mb-4">
+                <h5>روابط سريعة</h5>
+                <ul class="list-unstyled">
+                    <li><a href="index.html">الرئيسية</a></li>
+                    <li><a href="audio.html">الصوتيات</a></li>
+                    <li><a href="books.html">الكتب</a></li>
+                    <li><a href="about.html">حول الموقع</a></li>
+                </ul>
+            </div>
+            <div class="col-md-4 mb-4">
+                <h5>تواصل معنا</h5>
+                <p><i class="fas fa-envelope"></i> info@islamic-library.com</p>
+                <div class="mt-3">
+                    <a href="sitemap.xml" class="text-white me-3">خريطة الموقع</a>
+                    <a href="robots.txt" class="text-white">robots.txt</a>
+                </div>
+            </div>
+        </div>
+        <hr class="bg-light">
+        <div class="text-center">
+            <p>&copy; 2024 المكتبة الإسلامية - جميع الحقوق محفوظة</p>
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+// Search & API functions
+let currentPlaylist = [];
+let currentTrackIndex = 0;
+
+// Arabic normalization
+function normalizeArabic(text) {
+    if (!text) return '';
+    text = text.replace(/[أإآ]/g, 'ا');
+    text = text.replace(/ة/g, 'ه');
+    text = text.replace(/ى/g, 'ي');
+    text = text.replace(/[ًٌٍَُِّْ]/g, '');
+    text = text.replace(/^ال/g, '');
+    return text.trim().toLowerCase();
+}
+
+// Search function
+async function searchArchive(query, mediaType) {
+    showLoader(true);
+    try {
+        let searchQuery = `(${query}) AND mediatype:(${mediaType})`;
+        let url = `https://archive.org/advancedsearch.php?q=${encodeURIComponent(searchQuery)}&fl[]=title&fl[]=creator&fl[]=subject&fl[]=identifier&rows=50&page=1&output=json`;
+        
+        let response = await fetch(url);
+        let data = await response.json();
+        
+        let results = [];
+        if (data.response && data.response.docs) {
+            results = data.response.docs.map(doc => ({
+                title: doc.title || 'بدون عنوان',
+                creator: doc.creator || 'مؤلف غير معروف',
+                subject: doc.subject ? (Array.isArray(doc.subject) ? doc.subject[0] : doc.subject) : 'عام',
+                identifier: doc.identifier,
+                downloadUrl: `https://archive.org/download/${doc.identifier}/${doc.identifier}_${mediaType === 'audio' ? '64kb.mp3' : 'text.pdf'}`
+            }));
+        }
+        displayResults(results, mediaType);
+    } catch (error) {
+        console.error('Search error:', error);
+        document.getElementById('resultsContainer').innerHTML = '<div class="alert alert-danger">حدث خطأ في البحث. يرجى المحاولة مرة أخرى.</div>';
+    } finally {
+        showLoader(false);
+    }
+}
+
+function displayResults(results, type) {
+    const container = document.getElementById('resultsContainer');
+    if (!container) return;
+    
+    if (!results || results.length === 0) {
+        container.innerHTML = '<div class="alert alert-info">لا توجد نتائج. حاول بكلمات أخرى.</div>';
+        return;
+    }
+    
+    container.innerHTML = results.map(item => `
+        <div class="result-item" data-title="${item.title}" data-creator="${item.creator}" data-url="${item.downloadUrl}" data-identifier="${item.identifier}">
+            <div class="row align-items-center">
+                <div class="col-md-7">
+                    <h5><i class="fas ${type === 'audio' ? 'fa-headphones' : 'fa-book'}"></i> ${item.title}</h5>
+                    <p class="mb-1"><strong>${type === 'audio' ? 'الشيخ' : 'المؤلف'}:</strong> ${item.creator}</p>
+                    <p><strong>التصنيف:</strong> ${item.subject}</p>
+                </div>
+                <div class="col-md-5 text-md-end">
+                    ${type === 'audio' ? 
+                        `<button class="btn btn-gold btn-sm play-btn" data-url="${item.downloadUrl}" data-title="${item.title}"><i class="fas fa-play"></i> استماع</button>` :
+                        `<button class="btn btn-gold btn-sm download-pdf" data-url="${item.downloadUrl}" data-title="${item.title}"><i class="fas fa-download"></i> تحميل PDF</button>`
+                    }
+                    <button class="btn btn-outline-secondary btn-sm share-result" data-title="${item.title}" data-url="${item.downloadUrl}"><i class="fas fa-share"></i></button>
+                </div>
+            </div>
+        </div>
+    `).join('');
+    
+    // Add event listeners
+    document.querySelectorAll('.play-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            playAudio(btn.dataset.url, btn.dataset.title);
+        });
+    });
+    
+    document.querySelectorAll('.download-pdf').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            window.open(btn.dataset.url, '_blank');
+        });
+    });
+    
+    document.querySelectorAll('.share-result').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            if (navigator.share) {
+                navigator.share({title: btn.dataset.title, url: btn.dataset.url});
+            } else {
+                prompt('انسخ الرابط للمشاركة:', btn.dataset.url);
+            }
+        });
+    });
+}
+
+function playAudio(url, title) {
+    const audioPlayer = document.getElementById('playerAudio');
+    const playerDiv = document.getElementById('audioPlayer');
+    const trackTitle = document.getElementById('currentTrackTitle');
+    
+    audioPlayer.src = url;
+    audioPlayer.play();
+    trackTitle.textContent = title;
+    playerDiv.classList.add('show');
+    
+    // Update play/pause button
+    const playBtn = document.getElementById('playPauseBtn');
+    playBtn.innerHTML = '<i class="fas fa-pause"></i>';
+}
+
+// Handle search button
+document.getElementById('searchBtnMain')?.addEventListener('click', () => {
+    const query = document.getElementById('mainSearch').value;
+    if (query && query.trim()) {
+        searchArchive(normalizeArabic(query), 'audio');
+    }
+});
+
+// Load recent items on homepage
+if (window.location.pathname.includes('index.html') || window.location.pathname === '/' || window.location.pathname === '') {
+    searchArchive('islam', 'audio');
+}
+
+// Audio player controls
+const playerAudio = document.getElementById('playerAudio');
+const playPauseBtn = document.getElementById('playPauseBtn');
+const prevBtn = document.getElementById('prevBtn');
+const nextBtn = document.getElementById('nextBtn');
+const volumeBtn = document.getElementById('volumeBtn');
+const volumeSlider = document.getElementById('volumeSlider');
+
+if (playPauseBtn) {
+    playPauseBtn.addEventListener('click', () => {
+        if (playerAudio.paused) {
+            playerAudio.play();
+            playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
+        } else {
+            playerAudio.pause();
+            playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
+        }
+    });
+    
+    playerAudio.addEventListener('play', () => {
+        playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
+    });
+    
+    playerAudio.addEventListener('pause', () => {
+        playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
+    });
+    
+    volumeSlider.addEventListener('input', (e) => {
+        playerAudio.volume = e.target.value;
+    });
+}
+
+// Dark mode
+const darkModeToggle = document.getElementById('darkModeToggle');
+darkModeToggle?.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+    localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
+});
+
+if (localStorage.getItem('darkMode') === 'true') {
+    document.body.classList.add('dark-mode');
+}
+
+// Show/Hide loader
+function showLoader(show) {
+    const loader = document.getElementById('loader');
+    if (loader) loader.style.display = show ? 'block' : 'none';
+}
+
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({behavior: 'smooth'});
+    });
+});
+
+// Favorite management with localStorage
+let favorites = JSON.parse(localStorage.getItem('favorites') || '[]');
+
+document.getElementById('favoriteBtn')?.addEventListener('click', () => {
+    const currentTitle = document.getElementById('currentTrackTitle').textContent;
+    const currentUrl = playerAudio.src;
+    
+    if (!favorites.some(f => f.url === currentUrl)) {
+        favorites.push({title: currentTitle, url: currentUrl});
+        localStorage.setItem('favorites', JSON.stringify(favorites));
+        alert('تمت إضافة المقطع إلى المفضلة');
+    } else {
+        alert('المقطع موجود بالفعل في المفضلة');
+    }
+});
+</script>
+</body>
+</html>
