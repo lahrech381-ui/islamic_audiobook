@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://your-domain.com/index.html</loc>
+    <loc>https://lahrech381-ui.github.io/islamic_audiobook/index.html</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://your-domain.com/audio.html</loc>
+    <loc>https://lahrech381-ui.github.io/islamic_audiobook/audio.html</loc>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://your-domain.com/books.html</loc>
+    <loc>https://lahrech381-ui.github.io/islamic_audiobook/books.html</loc>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://your-domain.com/about.html</loc>
+    <loc>https://lahrech381-ui.github.io/islamic_audiobook/about.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
-    <loc>https://your-domain.com/guide.html</loc>
+    <loc>https://lahrech381-ui.github.io/islamic_audiobook/guide.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
